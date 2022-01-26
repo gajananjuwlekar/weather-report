@@ -1,0 +1,30 @@
+<ng-container *ngFor="let weather of zipCodeArr;  let i = index">
+    <form>
+        <div>
+            <fieldset>
+                <legend>{{weather?.name}}</legend>
+                <i (click)="closeTab(i)" class="fa fa-close"></i>
+                <div class="grid-container" (click)="onClickCard(weather)">
+                    <div class="grid-item item1">
+                        <label>Current Conditions: {{weather?.weather[0].description}} </label><br>
+                        <label>Temperature: {{weather?.main.temp}} </label><br>
+                        <label>Max today: {{weather?.main.temp_max}} - Min today: {{weather?.main.temp_min}} </label>
+                    </div>
+                    <div class="grid-item item2" *ngIf="weather?.weather[0].main === 'Clear'">
+                        <img src="https://www.angulartraining.com/images/weather/sun.png" alt="">
+                    </div>
+                    <div class="grid-item item2" *ngIf="weather?.weather[0].main === 'Rain'">
+                        <img src="https://www.angulartraining.com/images/weather/rain.png" alt="">
+                    </div>
+                    <div class="grid-item item2" *ngIf="weather?.weather[0].main === 'Snow'">
+                        <img src="https://www.angulartraining.com/images/weather/snow.png" alt="">
+                    </div>
+                    <div class="grid-item item2" *ngIf="(weather?.weather[0].main === 'Mist') || 
+                    (weather?.weather[0].main === 'Clouds') || (weather?.weather[0].main === 'Smoke')">
+                        <img src="https://www.angulartraining.com/images/weather/clouds.png" alt="">
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</ng-container>

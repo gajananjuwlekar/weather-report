@@ -1,0 +1,15 @@
+<form [formGroup]="weatherForm" (ngSubmit)="onSubmit()">
+    <div class="header">
+        <fieldset>
+            <legend>Add a Location</legend>
+            <label>Enter a zipcode: </label><br>
+            <input type="text" formControlName="zipcode">
+            <button>Add Location</button>
+        </fieldset>
+    </div>
+</form>
+<div class="loader" *ngIf="loader;else list"></div>
+<ng-template #list>
+    <app-weather-listing [zipCodeArr]="zipCodeArr" *ngIf="zipCodeArr?.length!==0" (closeEvent)="onClose($event)">
+    </app-weather-listing>
+</ng-template>

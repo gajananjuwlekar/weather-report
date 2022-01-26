@@ -1,0 +1,59 @@
+div{
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 30px;
+}
+
+fieldset{
+    padding: 20px
+}
+
+label{
+    font-size:16px;
+    margin-left: 20px;
+}
+
+input{
+    margin-top: 25px;
+    width: 60px;
+    margin-left: 88px;
+}
+
+button{
+    margin-left: 10px;
+    background: #ffff;
+    box-shadow: 2px 2px;
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 10px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.grid-item {
+  padding: 0px;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.item2 {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+img{
+    height: 100px;
+}
+
+i{
+    float: right;
+    margin-top: -18px;
+    font-size:24px;
+    cursor: pointer;
+}

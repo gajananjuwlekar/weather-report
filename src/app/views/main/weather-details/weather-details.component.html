@@ -1,0 +1,33 @@
+<div class="loader" *ngIf="weatherDetailsList?.length === 0;else info"></div>
+<ng-template #info>
+    <i class="fa fa-arrow-left" (click)="goBack()"></i>
+    <form>
+        <div class="header">
+            <fieldset>
+                <legend>{{weatherDetailsObj?.name}}</legend>
+                <div class="grid-container">
+                    <ng-container *ngFor="let wlist of weatherList">
+                        <div class="grid-item item1">
+                            <label>{{wlist?.day}}: {{wlist?.weather[0].description}} - High: {{wlist?.main.temp_max}} -
+                                Low:
+                                {{wlist?.main.temp_min}}</label><br>
+                        </div>
+                        <div class="grid-item item2" *ngIf="wlist?.weather[0].main === 'Clear'">
+                            <img src="https://www.angulartraining.com/images/weather/sun.png" alt="">
+                        </div>
+                        <div class="grid-item item2" *ngIf="(wlist?.weather[0].main === 'Rain')">
+                            <img src="https://www.angulartraining.com/images/weather/rain.png" alt="">
+                        </div>
+                        <div class="grid-item item2" *ngIf="wlist?.weather[0].main === 'Snow'">
+                            <img src="https://www.angulartraining.com/images/weather/snow.png" alt="">
+                        </div>
+                        <div class="grid-item item2"
+                            *ngIf="(wlist?.weather[0].main === 'Clouds')||(wlist?.weather[0].main === 'Smoke')">
+                            <img src="https://www.angulartraining.com/images/weather/clouds.png" alt="">
+                        </div>
+                    </ng-container>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</ng-template>
